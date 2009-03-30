@@ -1,16 +1,17 @@
 %bcond_without  javadoc         # don't build javadoc
-%bcond_with	java_sun	# build with java-sun
 
 %if "%{pld_release}" == "ti"
-%define	with_java_sun	1
+%bcond_without	java_sun	# build with gcj
+%else
+%bcond_with	java_sun	# build with java-sun
 %endif
 
 %define 	srcname	saaj
 %include	/usr/lib/rpm/macros.java
-Summary:	SAAJ
+Summary:	SAAJ Standard Implementation
 Name:		java-%{srcname}
 Version:	1.3.2
-Release:	0.1
+Release:	1
 License:	CDDL v1.0 and GPL v2
 Group:		Libraries/Java
 Source0:	https://saaj.dev.java.net/files/documents/52/125659/saaj%{version}.src.zip
@@ -47,10 +48,9 @@ Javadoc pour saaj.
 %setup -qc
 
 %build
-#CLASSPATH=$(build-classpath commons-codec commons-lang commons-logging commons-io)
 
 install -d build
-%javac -classpath $CLASSPATH -d build $(find -name '*.java')
+%javac -d build $(find -name '*.java')
 
 %if %{with javadoc}
 %javadoc -d apidocs \
