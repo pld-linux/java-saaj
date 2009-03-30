@@ -1,29 +1,23 @@
 %bcond_without  javadoc         # don't build javadoc
 
-%if "%{pld_release}" == "ti"
-%bcond_without	java_sun	# build with gcj
-%else
-%bcond_with	java_sun	# build with java-sun
-%endif
-
 %define 	srcname	saaj
 %include	/usr/lib/rpm/macros.java
 Summary:	SAAJ Standard Implementation
 Name:		java-%{srcname}
 Version:	1.3.2
-Release:	1
+Release:	2
 License:	CDDL v1.0 and GPL v2
 Group:		Libraries/Java
 Source0:	https://saaj.dev.java.net/files/documents/52/125659/saaj%{version}.src.zip
 # Source0-md5:	11eb6e620f65bced00471dc5388c4dad
 URL:		https://saaj.dev.java.net/
-%{!?with_java_sun:BuildRequires:	java-gcj-compat-devel}
-%{?with_java_sun:BuildRequires:	java-sun}
+BuildRequires:	java-sun
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	jpackage-utils
 BuildArch:	noarch
+ExclusiveArch:	i586 i686 pentium3 pentium4 athlon %{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
