@@ -11,7 +11,8 @@ Group:		Libraries/Java
 Source0:	https://saaj.dev.java.net/files/documents/52/125659/saaj%{version}.src.zip
 # Source0-md5:	11eb6e620f65bced00471dc5388c4dad
 URL:		https://saaj.dev.java.net/
-BuildRequires:	java-sun
+BuildRequires:	jdk
+BuildConflicts: java-gcj-compat-devel
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
