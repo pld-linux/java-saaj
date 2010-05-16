@@ -15,6 +15,7 @@ BuildRequires:	jdk
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
+BuildRequires:	unzip
 BuildConflicts:	java-gcj-compat-devel
 Requires:	jpackage-utils
 BuildArch:	noarch
