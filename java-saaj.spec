@@ -1,7 +1,6 @@
 %bcond_without  javadoc         # don't build javadoc
 
 %define 	srcname	saaj
-%include	/usr/lib/rpm/macros.java
 Summary:	SAAJ Standard Implementation
 Name:		java-%{srcname}
 Version:	1.3.2
